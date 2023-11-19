@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
+    public GameObject shieldPrefab;
     public float playerSpeed;
     private float horizontalScreenLimit = 10f;
     private float verticalScreenLimit = 4f;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     public AudioClip powerdownSound;
     private bool betterWeapon;
     public GameObject thruster;
+    public GameObject shieldBubble;
 
     // Start is called before the first frame update
     void Start()
@@ -121,7 +123,10 @@ public class Player : MonoBehaviour
                 } else if (tempInt == 3)
                 {
                     //Shield Powerup
+                    
                     gM.GetComponent<GameManager>().PowerupChange("Shield");
+                    shieldBubble.SetActive(true);
+                    
                 }
                 break;
         }
