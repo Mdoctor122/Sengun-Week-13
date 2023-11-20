@@ -79,6 +79,29 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    public void GainShield()
+    {
+        shield += 1;
+        Shieldtext.text = "Shield:" + shield;
+        if (shieldBubble >=3)
+        {
+            shield = 3;
+                shieldText.text = "Shield:" + shield;
+        }
+    }   
+    public void LoseShield()
+    {
+        shield--;
+        shieldText.text = "Shield" + shield;
+        if (shield <= 0)
+        {
+            LoseLife();
+            //Keep Shield at 0
+            shield = 0;
+            shieldText.text = "Shield:" + shield;
+
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
